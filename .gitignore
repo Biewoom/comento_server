@@ -1,8 +1,9 @@
 .gradle
 .gradle/**
 /.gradle/**
-build/
-week4/build
+build
+build/**
+week4/build/**
 week4/logs/
 logs/
 !gradle/wrapper/gradle-wrapper.jar
