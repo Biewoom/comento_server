@@ -1,0 +1,27 @@
+spring:
+  sql:
+    init:
+      schema-locations:
+        - classpath:sql/ddl/*
+      continue-on-error: true
+      mode: always
+      platform: h2
+      data-locations:
+        - classpath:sql/dml/*
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:mem:testdb
+      username: sa
+      password: password
+      driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: H2
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+
