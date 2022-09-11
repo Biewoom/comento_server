@@ -1,3 +1,4 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 
 plugins {
     id("org.springframework.boot")
@@ -5,6 +6,19 @@ plugins {
     kotlin("jvm")
     kotlin("plugin.spring")
     kotlin("plugin.jpa")
+}
+val KOTEST_VERSION = "5.3.0"
+
+tasks.getByName<Test>("test") {
+    systemProperty("spring.profiles.active", "test")
+    useJUnitPlatform()
+    testLogging {
+        events(PASSED, FAILED, STANDARD_ERROR, SKIPPED)
+        exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+        showExceptions = true
+        showCauses = true
+        showStackTraces = true
+    }
 }
 
 dependencies {
@@ -16,7 +30,9 @@ dependencies {
     compileOnly("com.h2database:h2")
     runtimeOnly("mysql:mysql-connector-java")
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test"){
+        exclude(module = "mockito-core")
+    }
 
     // open API
     implementation("org.springdoc:springdoc-openapi-data-rest:1.5.12")
@@ -34,4 +50,16 @@ dependencies {
             replacedBy("org.springframework.boot:spring-boot-starter-log4j2", "Use Log4j2 instead of Logback")
         }
     }
+
+    // h2 DB for Test
+    testRuntimeOnly("com.h2database:h2")
+
+    // mockk
+    testImplementation("io.mockk:mockk:1.9.3")
+    // Kotest
+    testImplementation("io.kotest:kotest-runner-junit5:${KOTEST_VERSION}")
+    testImplementation("io.kotest:kotest-assertions-core:${KOTEST_VERSION}")
+
+    // SpringMockk
+    testImplementation("com.ninja-squad:springmockk:3.1.1")
 }
