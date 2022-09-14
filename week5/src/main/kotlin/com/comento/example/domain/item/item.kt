@@ -1,6 +1,7 @@
-package com.comento.example.domain.example.inheritance
+package com.comento.example.domain.item
 
 import java.io.Serializable
+import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
@@ -13,10 +14,11 @@ import javax.persistence.InheritanceType
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) // 상속 구현 전략 선택
 abstract class Item (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "item_id")
     private var _id: Long? = null
 ) : Serializable {
-    protected open var name: String? = null
-    protected open var price = 0
+    open var name: String? = null
+    open var price = 0
 }
 
 @Entity
@@ -30,9 +32,8 @@ class Movie : Item() {
     var actor: String? = null
 }
 
-@Entity
+@Entity(name = "book")
 class Book : Item() {
     var author: String? = null
-    var isbn: String? = null
 }
 

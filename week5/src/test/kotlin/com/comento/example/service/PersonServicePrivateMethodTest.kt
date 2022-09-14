@@ -16,7 +16,7 @@ import org.junit.jupiter.params.provider.MethodSource
 internal class PersonServicePrivateMethodTest {
 
     private val personRepositoryMock = mockk<PersonRepository>(relaxed = true)
-    private val personServiceSpy = spyk(PersonService(personRepositoryMock), recordPrivateCalls = true)
+    private val personRepositorySut = PersonService(personRepositoryMock)
 
     @DisplayName("PersonService Spy ConvertToPerson private method 테스트")
     @ParameterizedTest
@@ -26,7 +26,7 @@ internal class PersonServicePrivateMethodTest {
         val ( personDto, person ) = pair
 
         // when
-        val res = personServiceSpy.callPrivateFunc("convertToPerson", personDto)
+        val res = personRepositorySut.callPrivateFunc("convertToPerson", personDto)
 
         // then
         res shouldBe person

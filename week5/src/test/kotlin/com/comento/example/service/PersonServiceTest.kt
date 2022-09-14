@@ -49,12 +49,14 @@ internal class PersonServiceTest {
     @ParameterizedTest
     @MethodSource("provider_error_case")
     fun `test findBLinDateCoupleList when error`(pair: Pair<Gender, String>){
+        // given
         val (gender, expectedMessage) = pair
 
         every {
            personRepositoryMock.findPeopleByGenderAndAgeNotNull(gender)
         } returns emptyList()
 
+        // when & then
         val ex = shouldThrow<PersonNotFoundException> {
             personServiceSut.findBlindDateCoupleList(4)
         }

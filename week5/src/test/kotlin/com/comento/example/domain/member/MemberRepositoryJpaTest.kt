@@ -29,7 +29,7 @@ internal class MemberRepositoryJpaTest {
     fun `test member create test`(){
         // given
         val samsungTeam = Team(null).apply { name = "삼성 라이온즈" }
-        val member = Member(null).apply { _name = "오승환"; team = samsungTeam }
+        val member = Member(null).apply { name = "오승환"; team = samsungTeam }
 
         // when
         val res1 = teamRepository.save(samsungTeam)

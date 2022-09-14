@@ -10,7 +10,6 @@ import org.junit.jupiter.params.provider.MethodSource
 
 internal class JpaDtoJsonTest {
 
-
     @DisplayName("CompanyDto 직렬화 테스트")
     @ParameterizedTest
     @MethodSource("provider_companyDto")
@@ -54,6 +53,20 @@ internal class JpaDtoJsonTest {
                     "founding_date": "2022-01-22",
                     "country": "USA"
                 }
+                """.toSingleStringWithoutSpace()
+            ),
+            Pair(
+                CompanyDto(
+                    name = "KAKAO",
+                    foundingDate = YMD("1999-10-12"),
+                    country = "KOREA"
+                ),
+                """
+                {
+                    "name": "KAKAO",
+                    "founding_date": "1999-10-12",
+                    "country": "KOREA"
+                }   
                 """.toSingleStringWithoutSpace()
             )
         )

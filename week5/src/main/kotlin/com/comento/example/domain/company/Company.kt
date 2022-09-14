@@ -22,7 +22,8 @@ data class Company(
     var foundingDate: YMD = YMD("2022-12-07")
 
     @Column(name = "name")
-    var name: String = ""
+    lateinit var name: String
+
 
     @Column(name = "country")
     var country: String = ""

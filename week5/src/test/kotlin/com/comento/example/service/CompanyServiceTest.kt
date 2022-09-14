@@ -4,6 +4,7 @@ import com.comento.example.domain.CompanyNotFoundException
 import com.comento.example.domain.common.vo.YMD
 import com.comento.example.domain.company.Company
 import com.comento.example.domain.company.CompanyRepository
+import com.comento.example.logger
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -61,7 +62,6 @@ internal class CompanyServiceTest {
         val ex = shouldThrow<CompanyNotFoundException> {
             companyServiceSut.findCompaniesByCountryName("KOREA")
         }
-
         // then
         ex.message shouldBe "`KOREA` Was Not Found"
     }

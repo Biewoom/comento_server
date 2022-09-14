@@ -2,7 +2,8 @@ spring:
   sql:
     init:
       schema-locations:
-        - classpath:sql/ddl/*
+        - classpath:sql/ddl/first/*
+        - classpath:sql/ddl/second/*
       continue-on-error: false
       mode: always
       platform: h2

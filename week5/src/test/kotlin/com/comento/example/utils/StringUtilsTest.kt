@@ -1,5 +1,6 @@
 package com.comento.example.utils
 
+import com.comento.example.domain.company.Company
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
