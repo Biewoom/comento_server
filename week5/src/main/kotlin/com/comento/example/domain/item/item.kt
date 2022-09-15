@@ -19,6 +19,7 @@ abstract class Item (
 ) : Serializable {
     open var name: String? = null
     open var price = 0
+    open var quantity = 0
 }
 
 @Entity
