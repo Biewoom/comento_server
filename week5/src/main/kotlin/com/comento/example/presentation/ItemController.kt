@@ -1,7 +1,7 @@
 package com.comento.example.presentation
 
-import com.comento.example.domain.item.Book
-import com.comento.example.domain.item.BookRepository
+import com.comento.example.example.item.Book
+import com.comento.example.example.item.BookRepository
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController

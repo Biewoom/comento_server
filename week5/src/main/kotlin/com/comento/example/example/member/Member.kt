@@ -1,7 +1,7 @@
-package com.comento.example.domain.member
+package com.comento.example.example.member
 
-import com.comento.example.domain.product.MemberProduct
-import com.comento.example.domain.team.Team
+import com.comento.example.example.product.MemberProduct
+import com.comento.example.example.team.Team
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType

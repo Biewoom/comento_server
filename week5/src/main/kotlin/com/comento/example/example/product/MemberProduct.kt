@@ -1,6 +1,6 @@
-package com.comento.example.domain.product
+package com.comento.example.example.product
 
-import com.comento.example.domain.member.Member
+import com.comento.example.example.member.Member
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType

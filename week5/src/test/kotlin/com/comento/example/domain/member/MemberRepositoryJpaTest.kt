@@ -1,7 +1,9 @@
 package com.comento.example.domain.member
 
-import com.comento.example.domain.team.Team
-import com.comento.example.domain.team.TeamRepository
+import com.comento.example.example.member.Member
+import com.comento.example.example.member.MemberRepository
+import com.comento.example.example.team.Team
+import com.comento.example.example.team.TeamRepository
 import com.comento.example.logger
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.DisplayName

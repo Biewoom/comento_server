@@ -1,4 +1,4 @@
-package com.comento.example.domain.member
+package com.comento.example.example.member
 
 import javax.persistence.Column
 import javax.persistence.Entity

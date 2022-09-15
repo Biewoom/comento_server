@@ -1,6 +1,6 @@
-package com.comento.example.domain.team
+package com.comento.example.example.team
 
-import com.comento.example.domain.member.Member
+import com.comento.example.example.member.Member
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType

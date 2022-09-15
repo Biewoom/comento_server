@@ -1,4 +1,4 @@
-package com.comento.example.domain.product
+package com.comento.example.example.product
 
 import javax.persistence.Column
 import javax.persistence.Entity

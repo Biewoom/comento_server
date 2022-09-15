@@ -1,4 +1,4 @@
-package com.comento.example.domain.member
+package com.comento.example.example.member
 
 import org.springframework.data.repository.CrudRepository
 

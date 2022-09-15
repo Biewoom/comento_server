@@ -1,4 +1,4 @@
-package com.comento.example.domain.item
+package com.comento.example.example.item
 
 import java.io.Serializable
 
