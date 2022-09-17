@@ -1,11 +1,16 @@
 package com.comento.example.domain.company
 
 import com.comento.example.domain.common.vo.YMD
+import com.comento.example.domain.country.Country
+import com.comento.example.domain.person.Person
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
+import javax.persistence.OneToMany
 import javax.persistence.Table
 
 @Entity
@@ -13,21 +18,25 @@ import javax.persistence.Table
 data class Company(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "company_id")
-    private var _id: Long? = null,
-) {
+    private var _id: Long? = null
+){
     val id: Long
-        get() = _id ?: throw RuntimeException()
+        get() = _id ?: 0
 
     @Column(name = "founding_date")
-    var foundingDate: YMD = YMD("2022-12-07")
+    var foundingDate: YMD = YMD("2022-09-01")
 
     @Column(name = "name")
     lateinit var name: String
 
+    @ManyToOne
+    @JoinColumn(name = "country", referencedColumnName = "name")
+    lateinit var country: Country
 
-    @Column(name = "country")
-    var country: String = ""
-
+    @OneToMany(mappedBy = "company")
+    lateinit var employees: List<Person>
 }
+
+
 
 

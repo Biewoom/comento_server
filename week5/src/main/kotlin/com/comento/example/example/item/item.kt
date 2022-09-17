@@ -8,9 +8,11 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.Inheritance
 import javax.persistence.InheritanceType
+import javax.persistence.Table
 
 
 @Entity
+@Table(name = "item")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) // 상속 구현 전략 선택
 abstract class Item (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +24,12 @@ abstract class Item (
     open var quantity = 0
 }
 
-@Entity
+@Entity(name = "album")
 class Album: Item() {
     var artist: String? = null
 }
 
-@Entity
+@Entity(name = "movie")
 class Movie : Item() {
     var director: String? = null
     var actor: String? = null

@@ -12,7 +12,7 @@ data class Person(
     val name: String,
 
     @Column(name = "gender")
-    @Enumerated(value = EnumType.ORDINAL)
+    @Convert(converter = Gender.GenderConverter::class)
     val gender: Gender,
 
     @Column(name = "country", length = 100)
