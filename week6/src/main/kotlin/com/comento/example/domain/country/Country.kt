@@ -1,5 +1,6 @@
 package com.comento.example.domain.country
 
+import java.io.Serializable
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Id
@@ -7,15 +8,15 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "country")
-data class Country (
+open class Country (
     @Id @Column(name = "zip_code")
-    val zipCode: Long,
-){
+    open val zipCode: Long,
+): Serializable {
 
     @Column(name = "name")
-    lateinit var name: String
+    open lateinit var name: String
 
     @Column(name = "capital_city")
-    lateinit var capitalCity: String
+    open lateinit var capitalCity: String
 
 }

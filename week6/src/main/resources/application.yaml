@@ -6,7 +6,7 @@ spring:
         - classpath:sql/ddl/second/*
         - classpath:sql/ddl/third/*
 
-      continue-on-error: false
+      continue-on-error: true
       mode: always
       platform: h2
       data-locations:
@@ -19,6 +19,9 @@ spring:
     hibernate:
       ddl-auto: update
     database: h2
+    properties:
+      hibernate:
+        format_sql: true
 
   datasource:
     hikari:

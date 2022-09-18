@@ -2,7 +2,7 @@ package com.comento.example.support
 
 import com.comento.example.domain.common.enums.Gender
 import com.comento.example.domain.person.Person
-import com.comento.example.presentation.dto.PersonDto
+//import com.comento.example.presentation.dto.PersonDto
 
 private inline fun <reified T> MutableCollection<T>.addNulls(size: Int = 1): List<T?> {
     val nullsList = arrayOfNulls<T?>(size)
@@ -25,19 +25,19 @@ val randomCountry: String
     get() = listOf("USA", "KOREA", "CHINA", "JAPAN", "RUSSIA", "TAIWAN", "VIETNAM" , "IRELAND", "ENGLAND", "CANADA").random()
 
 
-val Person.Companion.DYNAMIC_DUMMY : Person
-    get() = Person(name = randomName, gender = randomGender, country = randomCountry)
-        .apply { age = randomAge; height = randomHeight; weight = randomWeight; updateId((1..1000).random()) }
+//val Person.Companion.DYNAMIC_DUMMY : Person
+//    get() = Person(name = randomName, gender = randomGender, country = randomCountry)
+//        .apply { age = randomAge; height = randomHeight; weight = randomWeight; updateId((1..1000).random()) }
 
-val PersonDto.Companion.DYNAMIC_DUMMY: PersonDto
-    get() = PersonDto(
-        personId = (0.. 30).toMutableList().addNulls(8).random(),
-        age = randomAge,
-        height = randomHeight,
-        weight = randomWeight,
-        name = randomName,
-        gender = randomGenderWithNulls,
-        isMarried = listOf(true, false, null).random(),
-        company = listOf("GOOGLE", "META", "KAKAO", "DAEWO", "SHELL", "NAVER", null, null).random(),
-        country = randomCountry
-    )
+//val PersonDto.Companion.DYNAMIC_DUMMY: PersonDto
+//    get() = PersonDto(
+//        personId = (0.. 30).toMutableList().addNulls(8).random(),
+//        age = randomAge,
+//        height = randomHeight,
+//        weight = randomWeight,
+//        name = randomName,
+//        gender = randomGenderWithNulls,
+//        isMarried = listOf(true, false, null).random(),
+//        company = listOf("GOOGLE", "META", "KAKAO", "DAEWO", "SHELL", "NAVER", null, null).random(),
+//        country = randomCountry
+//    )

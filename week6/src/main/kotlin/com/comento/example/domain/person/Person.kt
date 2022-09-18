@@ -7,41 +7,42 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "person")
-data class Person(
+open class Person(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "person_id", precision = 255)
     private var _id: Long? = null
 ){
+    constructor(): this(null)
     val id: Long
         get() = _id ?: throw RuntimeException()
 
     @Column(name = "name", length = 30)
-    lateinit var name: String
+    open lateinit var name: String
 
     @Column(name = "gender")
     @Enumerated(value = EnumType.ORDINAL)
-    lateinit var gender: Gender
+    open lateinit var gender: Gender
 
     @Column(name = "age", precision = 10)
-    var age: Int? = null
+    open var age: Int? = null
 
     @Column(name = "height", precision = 10)
-    var height: Int? = null
+    open var height: Int? = null
 
     @Column(name = "weight", precision = 10)
-    var weight: Int? = null
+    open var weight: Int? = null
 
     @Column(name = "is_married")
-    var isMarried: Boolean? = null
+    open var isMarried: Boolean? = null
 
     // FK
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "country", referencedColumnName = "name")
-    lateinit var country: Country
+    open lateinit var country: Country
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "company")
-    var company: Company? = null
+    @JoinColumn(name = "company", nullable = true)
+    open var company: Company? = null
 
     override fun toString(): String {
         return "Person(name='$name', gender=$gender, country='$country', age=$age)"

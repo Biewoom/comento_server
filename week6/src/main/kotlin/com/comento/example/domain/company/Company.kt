@@ -5,6 +5,7 @@ import com.comento.example.domain.country.Country
 import com.comento.example.domain.person.Person
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
@@ -15,7 +16,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "company")
-data class Company(
+open class Company(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "company_id")
     private var _id: Long? = null
@@ -24,17 +25,17 @@ data class Company(
         get() = _id ?: 0
 
     @Column(name = "founding_date")
-    var foundingDate: YMD = YMD("2022-09-01")
+    open var foundingDate: YMD = YMD("2022-09-01")
 
     @Column(name = "name")
-    lateinit var name: String
+    open lateinit var name: String
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "country", referencedColumnName = "name")
-    lateinit var country: Country
+    open lateinit var country: Country
 
-    @OneToMany(mappedBy = "company")
-    lateinit var employees: List<Person>
+    @OneToMany(targetEntity = Person::class, mappedBy = "company")
+    open lateinit var employees: List<Person>
 }
 
 

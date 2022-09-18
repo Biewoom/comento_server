@@ -1,0 +1,7 @@
+springdoc:
+  version: '0.0'
+  swagger-ui:
+    path: /openapi
+
+server:
+  port: 8081
