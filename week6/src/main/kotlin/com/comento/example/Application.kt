@@ -4,6 +4,8 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import mu.KotlinLogging
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.cache.annotation.EnableCaching
+import org.springframework.cloud.openfeign.EnableFeignClients
 import kotlin.math.pow
 import kotlin.math.roundToLong
 
@@ -19,6 +21,8 @@ val OBJECT_MAPPER = jacksonObjectMapper()
 fun Any.toJson() = OBJECT_MAPPER.writeValueAsString(this)
 fun Any.toPrettyJson() = OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(this)
 
+
+@EnableFeignClients
 @SpringBootApplication
 class Application
 fun main(args: Array<String>) {

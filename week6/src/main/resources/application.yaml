@@ -39,3 +39,28 @@ springdoc:
   version: '0.0'
   swagger-ui:
     path: /openapi
+
+feign:
+  httpclient:
+    max-connections: 300
+    max-connections-per-route: 300
+  circuitbreaker:
+    enabled: true
+  autoconfiguration:
+    jackson:
+      enabled: true
+  client:
+    config:
+      default:
+        connect-timeout: 3000
+        read-timeout: 3000
+      exampleClient:
+        connect-timeout: 4000
+        read-timeout: 4000
+        url: "http://localhost:8081"
+      messageClient:
+        connect-timeout: 400
+        read-timeout: 400
+        url: "http://localhost:8081"
+
+    default-to-properties: false

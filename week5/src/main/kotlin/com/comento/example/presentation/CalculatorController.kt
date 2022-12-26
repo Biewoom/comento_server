@@ -37,8 +37,6 @@ class CalculatorController(
     @GetMapping("/generate/{range}")
     fun generateRandomNumber( @PathVariable("range") range: String): ResponseEntity<*> {
         return try {
-            MDC.clear()
-            MDC.put("requestId", UUID.randomUUID().toString())
             logger.info { "range: $range"}
             ResponseEntity.status(HttpStatus.OK).body(calculatorService.getRandomNum(range))
         } catch(e: IllegalArgumentException){

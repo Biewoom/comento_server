@@ -9,6 +9,8 @@ plugins {
 }
 val KOTEST_VERSION = "5.3.0"
 
+extra["springCloudVersion"] = "2021.0.3"
+
 tasks.getByName<Test>("test") {
     systemProperty("spring.profiles.active", "test")
     useJUnitPlatform()
@@ -62,4 +64,19 @@ dependencies {
 
     // SpringMockk
     testImplementation("com.ninja-squad:springmockk:3.1.1")
+
+    // OpenFeign
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.2.10.RELEASE")
+
+
+    implementation("org.springframework.boot:spring-boot-starter-aop:2.7.2")
+    //    implementation("org.springframework.retry:spring-retry:1.3.2")
+
+    testImplementation("org.springframework.cloud:spring-cloud-contract-wiremock")
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+        }
+    }
 }

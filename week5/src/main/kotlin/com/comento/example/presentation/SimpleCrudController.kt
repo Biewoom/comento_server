@@ -42,14 +42,8 @@ class SimpleCrudController(
         ApiResponse(responseCode = "404", description = "Country Not Found", content = [Content(mediaType = "application/json", schema = Schema(implementation = String::class, example = "`France` Cannot be Found" ))])
     ])
     @GetMapping("/countries/{countryName}/capital-city")
-    fun getCapitalCityByCountry(@PathVariable("countryName") countryName: String): ResponseEntity<*> {
-        return try {
-            ResponseEntity.ok().body(countryService.findCapitalCityByCountryName(countryName))
-        } catch (e: CountryNotFoundException){
-            ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.message)
-        } catch (e: Exception){
-            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
-        }
+    fun getCapitalCityByCountry(@PathVariable("countryName") countryName: String): String {
+        return countryService.findCapitalCityByCountryName(countryName)
     }
 
     @Operation(summary = "Get Companies by it's countryName")

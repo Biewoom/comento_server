@@ -14,6 +14,7 @@ buildscript {
     }
 }
 
+
 allprojects {
     group = "com.comento"
     version = "0.0.1-SNAPSHOT"
@@ -37,4 +38,9 @@ allprojects {
     tasks.withType<Test> {
         useJUnitPlatform()
     }
+
+    tasks.withType<Wrapper> {
+        gradleVersion = "7.2"
+    }
+
 }

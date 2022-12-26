@@ -1,0 +1,27 @@
+GET localhost:8081/api/v1/messages/all
+
+> {%
+  client.test("case_1: success", function() {
+    client.assert(response.status === 200, "Response status is not 200");
+    }
+  );
+ %}
+
+###
+GET http://localhost:8081/api/v1/messages/id1
+
+> {%
+  client.test("case_1: success", function() {
+    client.assert(response.status === 200, "Response status is not 200")
+    client.assert(response.body.size == 1, "test");
+    });
+ %}
+
+###
+POST http://localhost:8081/api/v1/messages
+Content-Type: application/json
+
+{
+  "id": "id1",
+  "text": true
+}
