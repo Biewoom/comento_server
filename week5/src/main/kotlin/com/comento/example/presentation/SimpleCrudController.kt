@@ -2,7 +2,6 @@ package com.comento.example.presentation
 
 import com.comento.example.domain.BlindDateNotFoundException
 import com.comento.example.domain.CompanyNotFoundException
-import com.comento.example.domain.CountryNotFoundException
 import com.comento.example.domain.PersonNotFoundException
 import com.comento.example.presentation.dto.BlindDateDto
 import com.comento.example.presentation.dto.CompanyDto

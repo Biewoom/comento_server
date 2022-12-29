@@ -1,27 +1,42 @@
 package com.example.week4.domain.country
 
-import com.example.week4.domain.common.PreventAnyUpdate
+import au.com.console.kassava.kotlinEquals
+import au.com.console.kassava.kotlinHashCode
+import au.com.console.kassava.kotlinToString
+import com.example.week4.domain.company.Company
 import java.io.Serializable
 import javax.persistence.Column
 import javax.persistence.Entity
-import javax.persistence.EntityListeners
 import javax.persistence.Id
 import javax.persistence.Table
 
 
 @Entity
 @Table(name = "country")
-@EntityListeners(PreventAnyUpdate::class)
-data class Country(
-    @Id @Column(name = "zip_code")
-    val zipCode: Long,
-
+class Country(
+    zipCode: Long,
+    name: String,
+    capitalCity: String
 ): Serializable {
-    @Column(name = "name", unique = true)
-    var name: String = ""
+    @Id @Column(name = "zip_code")
+    val zipCode: Long = zipCode
 
-    @Column(name = "capital_city")
-    var capitalCity: String= ""
+    @Column(name = "name", nullable = false, unique = true)
+    var name: String = name
+        protected set
 
+    @Column(name = "capital_city", nullable =false)
+    var capitalCity: String = capitalCity
+        protected set
+
+    override fun equals(other: Any?): Boolean = kotlinEquals(other, properties = arrayOf(Country::zipCode))
+    override fun hashCode() = kotlinHashCode(properties = arrayOf(Country::zipCode))
+    override fun toString(): String = kotlinToString(properties = arrayOf(
+        Country::zipCode,
+        Country::name,
+        Country::capitalCity)
+
+    )
 }
+
 

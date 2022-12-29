@@ -1,6 +1,6 @@
 package com.example.week4.presentation.dto
 
-import com.example.week4.domain.company.YMD
+import com.example.week4.domain.common.YMD
 import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.databind.annotation.JsonNaming
 

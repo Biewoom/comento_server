@@ -9,5 +9,14 @@ VALUES
     (59068,'TAIWAN', 'Taipei'),
     (6553,'VIETNAM', 'Hanoi'),
     (45366,'IRELAND', 'Dublin'),
-    (1231327,'ENGLAND', 'London'),
-    (5435322,'CANADA', 'Ottawa');
+    (5435322,'CANADA', 'Ottawa'),
+    (34567, 'MEXICO', 'Mexico City'),
+    (45678, 'BRAZIL', 'Brasília'),
+    (56789, 'ARGENTINA', 'Buenos Aires'),
+    (53419, 'AUSTRALIA', 'Canberra'),
+    (51239, 'GERMANY', 'Berlin'),
+    (89012, 'INDIA', 'New Delhi'),
+    (90123, 'RUSSIA', 'Moscow'),
+    (01234, 'SOUTH AFRICA', 'Pretoria'),
+    (01232, 'UK', 'London'),
+    (12345, 'FRANCE', 'Paris');

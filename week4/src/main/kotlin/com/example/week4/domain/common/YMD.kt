@@ -1,4 +1,4 @@
-package com.example.week4.domain.company
+package com.example.week4.domain.common
 
 @JvmInline
 value class YMD(private val str: String){

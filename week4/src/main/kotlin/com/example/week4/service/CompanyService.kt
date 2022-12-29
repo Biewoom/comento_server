@@ -3,7 +3,7 @@ package com.example.week4.service
 import com.example.week4.domain.company.Company
 import com.example.week4.domain.company.CompanyNotFoundException
 import com.example.week4.domain.company.CompanyRepository
-import com.example.week4.domain.company.YMD
+import com.example.week4.domain.common.YMD
 import com.example.week4.domain.country.CountryNotFoundException
 import com.example.week4.domain.country.CountryRepository
 import com.example.week4.domain.person.PersonRepository
@@ -47,8 +47,7 @@ class CompanyService(
         logger.info( "existedCompany: $existedCompany" )
 
         existedCompany?.let {company ->
-            personRepository.findPeopleByCompany(company)?.map {person ->
-                person.company = null
+            personRepository.findPeopleByCompany(company)?.map { person ->
                 personRepository.save(person)
             }
 
