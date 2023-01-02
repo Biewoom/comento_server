@@ -19,11 +19,10 @@ import javax.persistence.UniqueConstraint
 import kotlin.RuntimeException
 
 @Entity
-@Table(name = "person",  uniqueConstraints = [
-    UniqueConstraint(name = "uc_person_age", columnNames = ["age"])
-])
+@Table(name = "person")
 class Person(
     name: String,
+    gender: Byte,
     country: Country
 ): Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +34,7 @@ class Person(
         protected set
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = [], optional = false)
-    @JoinColumn(name = "country",referencedColumnName = "name")
+    @JoinColumn(name = "country", referencedColumnName = "name")
     var country: Country = country
         protected set
 
@@ -44,11 +43,20 @@ class Person(
     var company: Company? = null
         protected set
 
+    @Column(name = "gender", nullable = false)
+    var gender: Byte = gender
+
     @Column(name = "age", nullable = true)
     var age: Int = 0
 
     @Column(name = "height", nullable = true)
     var height: Int? = null
+
+    @Column(name= "weight", nullable = true)
+    var weight: Int? = null
+
+    @Column(name = "is_married", nullable = true)
+    var isMarried: Boolean? = null
 
     val id: Long
         get() = _id ?: throw RuntimeException()

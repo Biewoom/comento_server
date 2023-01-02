@@ -3,7 +3,6 @@ package com.example.week4.domain.country
 import au.com.console.kassava.kotlinEquals
 import au.com.console.kassava.kotlinHashCode
 import au.com.console.kassava.kotlinToString
-import com.example.week4.domain.company.Company
 import java.io.Serializable
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -16,10 +15,11 @@ import javax.persistence.Table
 class Country(
     zipCode: Long,
     name: String,
-    capitalCity: String
+    capitalCity: String,
+    continent: String
 ): Serializable {
-    @Id @Column(name = "zip_code")
-    val zipCode: Long = zipCode
+    @Id @Column(name = "zip_code", nullable = false, unique = true)
+    private val zipCode: Long = zipCode
 
     @Column(name = "name", nullable = false, unique = true)
     var name: String = name
@@ -35,7 +35,6 @@ class Country(
         Country::zipCode,
         Country::name,
         Country::capitalCity)
-
     )
 }
 

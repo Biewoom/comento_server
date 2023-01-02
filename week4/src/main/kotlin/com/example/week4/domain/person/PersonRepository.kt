@@ -7,5 +7,5 @@ interface PersonRepository: CrudRepository<Person, Long> {
 
     fun findPeopleByAgeBetween(age: Int, age2: Int): List<Person>
 
-    fun findPeopleByCompany(company: Company): List<Person>?
+    fun findPeopleByCompany(company: Company): List<Person>
 }
